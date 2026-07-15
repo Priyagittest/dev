@@ -33,5 +33,5 @@ jobs:
 
       - name: Push to production repo
         run: |
-          git remote add production https://x-access-token:${{ secrets.PROD_REPO_TOKEN }}@github.com/Priyagittest/production.git
+          git remote add production https://x-access-token:${{ secrets.dev-to-prod-push-v2 }}@github.com/Priyagittest/production.git
           git push production main:main --force

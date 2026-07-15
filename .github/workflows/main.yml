@@ -31,6 +31,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+      - name: Remove workflow files before pushing to production
+        run: |
+          rm -rf .github
+          git add -A
+          git commit -m "Remove workflow files before pushing to production" --allow-empty
+
       - name: Push to production repo
         run: |
           git remote add production https://x-access-token:${{ secrets.PROD_REPO_TOKEN }}@github.com/Priyagittest/production.git
